@@ -1,0 +1,48 @@
+import discord
+import random
+from bot_logic import gen_pass
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+
+@bot.command()
+async def hola(ctx):
+    await ctx.send(f'¡Hola, qué tal estás!')
+    await ctx.send(f'Si quieres ver el historial de comandos escribe "comandos"')
+
+
+@bot.command()
+async def adios(ctx):
+    await ctx.send(f'¡Adiós, que te vaya bien!')
+    await ctx.send(f'Si quieres ver el historial de comandos escribe "comandos"')
+
+@bot.command()
+async def contraseña(ctx):
+    await ctx.send(f'Aquí tienes tu contraseña:')
+    await ctx.send(gen_pass(10))
+    await ctx.send(f'Si quieres ver el historial de comandos escribe "comandos"')
+
+@bot.command()
+async def dado(ctx):
+    a = random.randint(1, 6)
+    await ctx.send(f'Aquí tienes tu resultado:')
+    await ctx.send(a)
+    await ctx.send(f'Si quieres ver el historial de comandos escribe "comandos"')
+
+@bot.command()
+async def comandos(ctx):
+    await ctx.send(f'Si quieres que el bot te salude escribe "hola"')
+    await ctx.send(f'Si quieres que el bot te despida escribe "adios"')
+    await ctx.send(f'Si quieres que el bot te genere una contraseña al azar escribe "contraseña"')
+    await ctx.send(f'Si quieres que el bot te tire un dado escribe "dado"')
+    
+
+
+bot.run()
