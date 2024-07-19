@@ -1,5 +1,7 @@
 import discord
 import random
+import os
+print(os.listdir('images'))
 from bot_logic import gen_pass
 from discord.ext import commands
 
@@ -42,7 +44,31 @@ async def comandos(ctx):
     await ctx.send(f'Si quieres que el bot te despida escribe "adios"')
     await ctx.send(f'Si quieres que el bot te genere una contraseña al azar escribe "contraseña"')
     await ctx.send(f'Si quieres que el bot te tire un dado escribe "dado"')
-    
+    await ctx.send(f'Si quieres que el bot te de un meme escribe "meme1" "meme2" o "meme3"')
+
+@bot.command()
+async def meme1(ctx):
+    with open('images/mem1.jpg', 'rb') as f:
+        # ¡Vamos a almacenar el archivo de la biblioteca Discord convertido en esta variable!
+        picture = discord.File(f)
+    # A continuación, podemos enviar este archivo como parámetro.
+    await ctx.send(file=picture)
+
+@bot.command()
+async def meme2(ctx):
+    with open('images/mem2.jpg', 'rb') as f:
+        # ¡Vamos a almacenar el archivo de la biblioteca Discord convertido en esta variable!
+        picture = discord.File(f)
+    # A continuación, podemos enviar este archivo como parámetro.
+    await ctx.send(file=picture)
+
+@bot.command()
+async def meme3(ctx):
+    with open('images/mem3.jpg', 'rb') as f:
+        # ¡Vamos a almacenar el archivo de la biblioteca Discord convertido en esta variable!
+        picture = discord.File(f)
+    # A continuación, podemos enviar este archivo como parámetro.
+    await ctx.send(file=picture)
 
 
-bot.run()
+bot.run("MTI1OTkzMDA0NjY0MzE3NTQyNA.GrHBDI.o56xb4yBu1jjw_PD1NU6o8PbNMqpwELWmGSmAE")
