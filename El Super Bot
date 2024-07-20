@@ -71,4 +71,4 @@ async def meme3(ctx):
     await ctx.send(file=picture)
 
 
-bot.run("MTI1OTkzMDA0NjY0MzE3NTQyNA.GrHBDI.o56xb4yBu1jjw_PD1NU6o8PbNMqpwELWmGSmAE")
+bot.run()
